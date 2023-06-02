@@ -1,0 +1,21 @@
+import categories from "../Categories";
+
+interface Props {
+  onSelectCategory: (category: string) => void;
+}
+
+export default function ExpensesFilter({ onSelectCategory }: Props) {
+  return (
+    <select
+      className="form-select"
+      onChange={(e) => onSelectCategory(e.target.value)}
+    >
+      <option value="">All Category</option>
+      {categories.map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
+    </select>
+  );
+}
